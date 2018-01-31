@@ -1,7 +1,60 @@
 .App {
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-  top: 50%;
-  left: 50%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+form {
+    text-align: left;
+}
+
+fieldset { 
+    display: block;
+    padding: 20px;
+    margin: 10px;
+    border: 0 none;
+}
+
+p {
+    font-size: 16px;
+}
+
+#tournamentURL {
+    height: 20px;
+    width: 700px;
+    font-size: 14px;
+    border-radius: 4px;
+    border-color: gray;
+    padding: 5px;
+}
+
+#division {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+#gender {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#teamName {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+#viewStats {
+    display: block;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #23baca;
+    color: white;
+    border-color: #23baca;
+    font-size: 20px;
+    padding: 10px;
+    margin: 20px auto;
+    margin-top: 50px;
+}
+
+#viewStats:hover {
+    background-color: #159dab;
 }
