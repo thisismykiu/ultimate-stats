@@ -1,6 +1,9 @@
 .App {
     display: table-cell;
     vertical-align: middle;
+    border-radius: 10px;
+    background:#7f7f7f;
+    background:rgba(255,255,255,0.5);
 }
 
 form {
