@@ -1,5 +1,8 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import * as $ from 'jquery';
 import './App.css';
+import Team from './Team';
 
 interface AppProps {
 
@@ -28,7 +31,14 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   viewStats = () => {
-    global.console.log('view stats');
+    ReactDOM.render(<div />, document.getElementById('root'));
+
+    $('body').css('display', 'block');
+
+    ReactDOM.render(
+      <Team division={this.state.division} gender={this.state.gender} teamName={this.state.teamName} search={this.state.search}/>,
+      document.getElementById('teams')
+    );
   }
 
   render() {
