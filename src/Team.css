@@ -21,15 +21,31 @@
     cursor: grab;
 }
 
+#team {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+}
+
 #teamInfo {
+    position: relative;
+    display: block;
+    height: 300px;
+}
+
+.info {
+    position: absolute;
+}
+
+#teamBasics {
     clear: both;
     text-align: center;
+    display: block;
     height: 41px;
 }
 
 #winloss {
     float: left;
-    width: 15%;
     text-align: left;
     vertical-align: center;
     height: 41px;
@@ -40,7 +56,6 @@
     float: right;
     display: block;
     text-align: right;
-    width: 15%;
     height: 41px;
 }
 
@@ -55,26 +70,57 @@
 #name {
     display: inline-block;
     text-align: center;
-    font-size: 24px;
-    margin: 0 auto ;
     width: 70%;
+    height: 41px;
+    margin: 0 auto ;
+    white-space: nowrap;
+    font-size: 1.8vw;
+}
+
+#tournamentResults {
+    display: block;
+    height: 232px;
+}
+
+#remove {
+    display: block;
+    bottom: 0;
+    right: 0;
+    height: 27px;
 }
 
 #removeBtn {
     background-color: none;
     color: #000000;
-    display: inline-block;
     padding: 0;
-    float: right;
     border: none;
     cursor: pointer;
+    float: right;
+    display: inline-block;
 }
 
 #removeImg {
     max-width: 25px;
-    max-height: 25px;
 }
 
 #removeImg:hover {
     opacity: 0.5;
+}
+
+.loader {
+    position: relative;
+    display: block;
+    border: 24px solid #f3f3f3; /* Light grey */
+    border-top: 24px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    margin-top: 30%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as $ from 'jquery';
 import './App.css';
 import Team from './Team';
+import { getTeamPage } from './scrape.js';
 
 interface AppProps {
 
@@ -13,7 +14,10 @@ interface AppState {
     gender: string;
     teamName: string;
     search: string;
+    teamPage: string;
 }
+
+const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
 class App extends React.Component<AppProps, AppState> {
 
@@ -26,25 +30,53 @@ class App extends React.Component<AppProps, AppState> {
       division: '',
       gender: '',
       teamName: '',
-      search: ''
+      search: '',
+      teamPage: ''
     };
   }
 
   viewStats = () => {
-    ReactDOM.render(<div />, document.getElementById('root'));
+    var teamSearch = `http://play.usaultimate.org/teams/events/team_rankings/?RankSet=${this.state.division}-${this.state.gender}&F_${this.state.search}Name=${this.state.teamName}`;
 
-    $('body').css('display', 'block');
+    var teamPage: string;
 
-    ReactDOM.render(
-      <Team division={this.state.division} gender={this.state.gender} teamName={this.state.teamName} search={this.state.search}/>,
-      document.getElementById('teams')
-    );
+    $.get(proxyurl + teamSearch, (data) => {
+      teamPage = getTeamPage(data, this.state.teamName, this.state.search);
+    })
+    .done(() => {
+      if (teamPage.length > 0) {
+        this.setState({
+          teamPage: teamPage
+        });
+
+        ReactDOM.render(<div />, document.getElementById('root'));
+
+        $('body').css('display', 'block');
+
+        ReactDOM.render(
+          <Team teamName={this.state.teamName} search={this.state.search} teamPage={this.state.teamPage}/>,
+          document.getElementById('teams')
+        );
+      } else {
+        alert('Team not found. Please search for a valid team.');
+
+        var elements = document.getElementsByTagName('select');
+        for (var i = 0; i < elements.length ; i++) {
+          elements[i].selectedIndex = 0;
+        }
+
+        var teamName = document.getElementById('teamName') as HTMLInputElement;
+        if (teamName) {
+          teamName.value = '';
+        }
+      }
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <form>
+        <div id="userInput">
           <fieldset>
             <p>Enter USAU tournament schedule website:</p>
             <input 
@@ -70,7 +102,7 @@ class App extends React.Component<AppProps, AppState> {
             <input type="text" id="teamName" name="teamName" placeholder="Team name" data-class="teamName" onChange={event => this.setState({ teamName: event.target.value })}/>
           </fieldset>
           <button id="viewStats" type="submit" name="viewStats" data-class="btn" onClick={this.viewStats}>View Stats</button>
-        </form>
+        </div>
       </div>
     );
   }
