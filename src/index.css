@@ -27,3 +27,11 @@ body::after {
     vertical-align: middle;
     height: 100%;
 }
+
+#teams {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 1rem;
+    grid-gap: 1rem;
+}
