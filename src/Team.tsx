@@ -24,7 +24,7 @@ class Team extends React.Component<TeamProps, TeamState> {
 
     this.state = {
       ranking: 0,
-      power: 0,
+      power: 100,
       wins: 0,
       losses: 0
     };

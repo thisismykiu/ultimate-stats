@@ -10,8 +10,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    // "test": "react-scripts-ts test --env=jsdom",
-    "test": "jasmine",
+    "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -19,7 +18,6 @@
     "@types/node": "^9.4.0",
     "@types/react": "^16.0.35",
     "@types/react-dom": "^16.0.3",
-    "jasmine": "^2.9.0",
     "typescript": "^2.6.2"
   }
 }
