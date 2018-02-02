@@ -7,7 +7,7 @@
     float: left;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
     background: #ffffff;
     position: relative;
     top: 0;
@@ -18,78 +18,82 @@
 .Team:hover {
     top: -2px;
     filter: drop-shadow(0px 0px 10px black);
-    cursor: grab;
+    cursor: move;
 }
 
-#team {
+.team {
     width: 250px;
     height: 300px;
     position: absolute;
 }
 
-#teamInfo {
+.teamInfo {
     position: relative;
-    display: block;
+    display: inline-block;
+    width: 250px;
     height: 300px;
 }
 
 .info {
-    position: absolute;
+    width: 100%;
 }
 
-#teamBasics {
-    clear: both;
-    text-align: center;
-    display: block;
-    height: 41px;
-}
-
-#winloss {
-    float: left;
-    text-align: left;
-    vertical-align: center;
-    height: 41px;
+.teamBasics {
+    height: 30px;
     font-size: 20px;
 }
 
-#ranking {
-    float: right;
-    display: block;
-    text-align: right;
-    height: 41px;
+.name {
+    white-space: nowrap;
+    float: left;
+}
+
+.name a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.name a:hover {
+    color: #a9a9a9;
 }
 
 .rank {
-    font-size: 20px;
+    font-weight: bold;
+    float: right;
+}
+
+.numbers {
+    height: 21px;
+    margin-top: 2px;
+}
+
+.winloss {
+    font-size: 16px;
+    float: left;
+}
+
+.wins {
+    font-weight: bold;
 }
 
 .power {
     font-size: 14px;
+    float: right;
 }
 
-#name {
-    display: inline-block;
-    text-align: center;
-    width: 70%;
-    height: 41px;
-    margin: 0 auto ;
-    white-space: nowrap;
-    font-size: 1.8vw;
+.tournamentResults {
+    height: 220px;
 }
 
-#tournamentResults {
-    display: block;
-    height: 232px;
-}
-
-#remove {
-    display: block;
+.remove {
     bottom: 0;
     right: 0;
-    height: 27px;
+    height: 25px;
+    margin-top: 2px;
 }
 
-#removeBtn {
+.removeBtn {
     background-color: none;
     color: #000000;
     padding: 0;
@@ -99,11 +103,11 @@
     display: inline-block;
 }
 
-#removeImg {
-    max-width: 25px;
+.removeImg {
+    max-height: 25px;
 }
 
-#removeImg:hover {
+.removeImg:hover {
     opacity: 0.5;
 }
 
